@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"16133 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
+"16133 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
 [s S796 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S796 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "16143
@@ -14,17 +14,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S795 . . . . ]
 "16159
 [v _INTCONbits `VS795 ~T0 @X0 0 e@4082 ]
-"74 mcc_generated_files/mcc.h
+"75 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "194 mcc_generated_files/eusart2.h
 [v _EUSART2_is_rx_ready `(uc ~T0 @X0 0 ef ]
 "261
 [v _EUSART2_Read `(uc ~T0 @X0 0 ef ]
-"195 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h
+"195 /Applications/microchip/xc8/v1.45/include/stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "12 main.c
 [v _setYawServo `(v ~T0 @X0 0 ef1`ui ]
-"7248 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
+"193 mcc_generated_files/eusart1.h
+[v _EUSART1_is_rx_ready `(uc ~T0 @X0 0 ef ]
+"260
+[v _EUSART1_Read `(uc ~T0 @X0 0 ef ]
+"7248 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
 [s S366 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S366 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
 "7258
@@ -37,7 +41,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATAbits `VS365 ~T0 @X0 0 e@3977 ]
 "236 mcc_generated_files/tmr0.h
 [v _TMR0_WriteTimer `(v ~T0 @X0 0 ef1`ui ]
-"1957 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
+"1957 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
 [s S96 :4 `uc 1 :2 `uc 1 ]
 [n S96 . CCP4M DC4B ]
 "1961
@@ -71,7 +75,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f26k22.h: 50: extern volatile unsigned char ANSELA @ 0xF38;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
+"52 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
 [; ;pic18f26k22.h: 52: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f26k22.h: 55: typedef union {
@@ -6358,8 +6362,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 126: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 138: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 146: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 158: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -6476,8 +6480,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart2.h: 241: bool EUSART2_is_tx_done(void);
 [; ;eusart2.h: 261: uint8_t EUSART2_Read(void);
 [; ;eusart2.h: 281: void EUSART2_Write(uint8_t txData);
-[; ;mcc.h: 74: void SYSTEM_Initialize(void);
-[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
+[; ;eusart1.h: 97: void EUSART1_Initialize(void);
+[; ;eusart1.h: 145: bool EUSART1_is_tx_ready(void);
+[; ;eusart1.h: 193: bool EUSART1_is_rx_ready(void);
+[; ;eusart1.h: 240: bool EUSART1_is_tx_done(void);
+[; ;eusart1.h: 260: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 280: void EUSART1_Write(uint8_t txData);
+[; ;mcc.h: 75: void SYSTEM_Initialize(void);
+[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
 [; ;main.c: 12: void setYawServo(uint16_t);
 "14 main.c
 [v _yawPosition `ui ~T0 @X0 1 e ]
@@ -6506,7 +6516,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "21
 [v _cmd `uc ~T0 @X0 1 a ]
-[; ;main.c: 21: char cmd;
+[v _cmd2 `uc ~T0 @X0 1 a ]
+[; ;main.c: 21: char cmd, cmd2;
 [; ;main.c: 22: (INTCONbits.GIE = 1);
 "22
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
@@ -6604,36 +6615,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 53: break;
 "53
 [e $U 836  ]
-[; ;main.c: 54: case 'z':
+[; ;main.c: 54: case 'u':
 "54
 [e :U 846 ]
-[; ;main.c: 55: printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+[; ;main.c: 55: while (!(EUSART2_is_rx_ready())) {
 "55
-[e ( _printf :s 8C ]
-[; ;main.c: 56: break;
-"56
-[e $U 836  ]
-[; ;main.c: 57: case 'Z':
-"57
-[e :U 847 ]
-[; ;main.c: 58: asm("reset");
-"58
-[; <" reset ;# ">
-[; ;main.c: 59: break;
-"59
-[e $U 836  ]
-[; ;main.c: 60: default:
-"60
+[e $U 847  ]
 [e :U 848 ]
-[; ;main.c: 61: printf("Unknown key %c\r\n",cmd);
+{
+[; ;main.c: 56: if ((EUSART1_is_rx_ready())) {
+"56
+[e $ ! != -> ( _EUSART1_is_rx_ready ..  `i -> -> -> 0 `i `uc `i 850  ]
+{
+[; ;main.c: 57: cmd2 = EUSART1_Read();
+"57
+[e = _cmd2 ( _EUSART1_Read ..  ]
+[; ;main.c: 58: if (cmd2 == 'o') {
+"58
+[e $ ! == -> _cmd2 `ui -> 111 `ui 851  ]
+{
+[; ;main.c: 59: printf("ok\r\n");
+"59
+[e ( _printf :s 8C ]
+"60
+}
+[; ;main.c: 60: }
+[e $U 852  ]
 "61
-[e ( _printf , (. :s 9C -> _cmd `i ]
-[; ;main.c: 62: break;
+[e :U 851 ]
+[; ;main.c: 61: else {
+{
+[; ;main.c: 62: printf("Recieved %u from EUSART1\r\n", cmd2);
 "62
-[e $U 836  ]
+[e ( _printf , (. :s 9C -> _cmd2 `i ]
 "63
 }
+[e :U 852 ]
+"64
+}
+[e :U 850 ]
+"65
+}
+[e :U 847 ]
+"55
+[e $ ! != -> ( _EUSART2_is_rx_ready ..  `i -> -> -> 0 `i `uc `i 848  ]
+[e :U 849 ]
 [; ;main.c: 63: }
+[; ;main.c: 64: }
+[; ;main.c: 65: }
+[; ;main.c: 66: EUSART2_Read();
+"66
+[e ( _EUSART2_Read ..  ]
+[; ;main.c: 67: break;
+"67
+[e $U 836  ]
+[; ;main.c: 68: case 'z':
+"68
+[e :U 853 ]
+[; ;main.c: 69: printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+"69
+[e ( _printf :s 10C ]
+[; ;main.c: 70: break;
+"70
+[e $U 836  ]
+[; ;main.c: 71: case 'Z':
+"71
+[e :U 854 ]
+[; ;main.c: 72: asm("reset");
+"72
+[; <" reset ;# ">
+[; ;main.c: 73: break;
+"73
+[e $U 836  ]
+[; ;main.c: 74: default:
+"74
+[e :U 855 ]
+[; ;main.c: 75: printf("Unknown key %c\r\n",cmd);
+"75
+[e ( _printf , (. :s 11C -> _cmd `i ]
+[; ;main.c: 76: break;
+"76
+[e $U 836  ]
+"77
+}
+[; ;main.c: 77: }
 [e $U 836  ]
 "31
 [e :U 837 ]
@@ -6642,245 +6707,248 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 115 `ui `uc 840
  , $ -> -> 69 `ui `uc 841
  , $ -> -> 111 `ui `uc 845
- , $ -> -> 122 `ui `uc 846
- , $ -> -> 90 `ui `uc 847
- 848 ]
-"63
+ , $ -> -> 117 `ui `uc 846
+ , $ -> -> 122 `ui `uc 853
+ , $ -> -> 90 `ui `uc 854
+ 855 ]
+"77
 [e :U 836 ]
-"65
+"79
 }
 [e :U 835 ]
-"66
+"80
 }
-[; ;main.c: 65: }
-[; ;main.c: 66: }
+[; ;main.c: 79: }
+[; ;main.c: 80: }
 [e $U 832  ]
 [e :U 833 ]
 }
-[; ;main.c: 67: }
-"67
+[; ;main.c: 81: }
+"81
 [e :UE 831 ]
 }
-"69
+"83
 [v _setYawServo `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;main.c: 69: void setYawServo(uint16_t pos){
+[; ;main.c: 83: void setYawServo(uint16_t pos){
 [e :U _setYawServo ]
 [v _pos `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 71: if(pos < 1106){
-"71
-[e $ ! < _pos -> -> 1106 `i `ui 850  ]
+[; ;main.c: 85: if(pos < 1106){
+"85
+[e $ ! < _pos -> -> 1106 `i `ui 857  ]
 {
-[; ;main.c: 72: pos = 1106;
-"72
+[; ;main.c: 86: pos = 1106;
+"86
 [e = _pos -> -> 1106 `i `ui ]
-"73
+"87
 }
-[; ;main.c: 73: }
-[e $U 851  ]
-"74
-[e :U 850 ]
-[; ;main.c: 74: else if(pos > 4900){
-[e $ ! > _pos -> -> 4900 `i `ui 852  ]
+[; ;main.c: 87: }
+[e $U 858  ]
+"88
+[e :U 857 ]
+[; ;main.c: 88: else if(pos > 4900){
+[e $ ! > _pos -> -> 4900 `i `ui 859  ]
 {
-[; ;main.c: 75: pos = 4900;
-"75
+[; ;main.c: 89: pos = 4900;
+"89
 [e = _pos -> -> 4900 `i `ui ]
-"76
+"90
 }
-[e :U 852 ]
-"78
-[e :U 851 ]
-[; ;main.c: 76: }
-[; ;main.c: 78: yawPosition = pos;
+[e :U 859 ]
+"92
+[e :U 858 ]
+[; ;main.c: 90: }
+[; ;main.c: 92: yawPosition = pos;
 [e = _yawPosition _pos ]
-[; ;main.c: 79: }
-"79
-[e :UE 849 ]
+[; ;main.c: 93: }
+"93
+[e :UE 856 ]
 }
-"83
+"97
 [v _TMR0_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 83: void TMR0_DefaultInterruptHandler(void){
+[; ;main.c: 97: void TMR0_DefaultInterruptHandler(void){
 [e :U _TMR0_DefaultInterruptHandler ]
 [f ]
-"85
-[v F6839 `uc ~T0 @X0 1 s pulseHigh ]
-[i F6839
+"99
+[v F6852 `uc ~T0 @X0 1 s pulseHigh ]
+[i F6852
 -> -> 0 `i `uc
 ]
-[; ;main.c: 85: static uint8_t pulseHigh = 0;
-[; ;main.c: 86: if(!pulseHigh){
-"86
-[e $ ! ! != -> F6839 `i -> -> -> 0 `i `uc `i 854  ]
+[; ;main.c: 99: static uint8_t pulseHigh = 0;
+[; ;main.c: 100: if(!pulseHigh){
+"100
+[e $ ! ! != -> F6852 `i -> -> -> 0 `i `uc `i 861  ]
 {
-[; ;main.c: 87: do { LATAbits.LATA1 = 1; } while(0);
-"87
-[e :U 857 ]
+[; ;main.c: 101: do { LATAbits.LATA1 = 1; } while(0);
+"101
+[e :U 864 ]
 {
 [e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 856 ]
-[; ;main.c: 88: TMR0_WriteTimer(0xFFFF -yawPosition );
-"88
+[e :U 863 ]
+[; ;main.c: 102: TMR0_WriteTimer(0xFFFF -yawPosition );
+"102
 [e ( _TMR0_WriteTimer (1 - -> 65535 `ui _yawPosition ]
-[; ;main.c: 89: pulseHigh = 1;
-"89
-[e = F6839 -> -> 1 `i `uc ]
-"90
+[; ;main.c: 103: pulseHigh = 1;
+"103
+[e = F6852 -> -> 1 `i `uc ]
+"104
 }
-[; ;main.c: 90: }
-[e $U 858  ]
-"91
-[e :U 854 ]
-[; ;main.c: 91: else{
-{
-[; ;main.c: 92: do { LATAbits.LATA1 = 0; } while(0);
-"92
+[; ;main.c: 104: }
+[e $U 865  ]
+"105
 [e :U 861 ]
+[; ;main.c: 105: else{
+{
+[; ;main.c: 106: do { LATAbits.LATA1 = 0; } while(0);
+"106
+[e :U 868 ]
 {
 [e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 860 ]
-[; ;main.c: 93: TMR0_WriteTimer(0xFFFF -40000 );
-"93
-[e ( _TMR0_WriteTimer (1 -> - -> -> 65535 `ui `l -> 40000 `l `ui ]
-[; ;main.c: 94: pulseHigh = 0;
-"94
-[e = F6839 -> -> 0 `i `uc ]
-"95
-}
-[e :U 858 ]
-[; ;main.c: 95: }
-[; ;main.c: 98: INTCONbits.TMR0IF = 0;
-"98
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 101: }
-"101
-[e :UE 853 ]
-}
-"103
-[v _CCP4_CallBack `(v ~T0 @X0 1 ef1`ui ]
-"104
-{
-[; ;main.c: 103: void CCP4_CallBack(uint16_t capturedValue)
-[; ;main.c: 104: {
-[e :U _CCP4_CallBack ]
-"103
-[v _capturedValue `ui ~T0 @X0 1 r1 ]
-"104
-[f ]
-[; ;main.c: 105: if(CCP4CONbits.CCP4M == 0b0101){
-"105
-[e $ ! == -> . . _CCP4CONbits 0 0 `i -> 5 `i 863  ]
-{
-[; ;main.c: 106: CCP4CONbits.CCP4M = 0b0100;
-"106
-[e = . . _CCP4CONbits 0 0 -> -> 4 `i `uc ]
-[; ;main.c: 107: encoderA = 1;
+[e :U 867 ]
+[; ;main.c: 107: TMR0_WriteTimer(0xFFFF -40000 );
 "107
-[e = _encoderA -> -> 1 `i `uc ]
-[; ;main.c: 108: if(encoderB==0){
+[e ( _TMR0_WriteTimer (1 -> - -> -> 65535 `ui `l -> 40000 `l `ui ]
+[; ;main.c: 108: pulseHigh = 0;
 "108
-[e $ ! == -> _encoderB `i -> 0 `i 864  ]
-{
-[; ;main.c: 109: encoderPosition++;
+[e = F6852 -> -> 0 `i `uc ]
 "109
-[e ++ _encoderPosition -> -> 1 `i `l ]
-"110
-}
-[; ;main.c: 110: }
-[e $U 865  ]
-"111
-[e :U 864 ]
-[; ;main.c: 111: else{
-{
-[; ;main.c: 112: encoderPosition--;
-"112
-[e -- _encoderPosition -> -> 1 `i `l ]
-"113
 }
 [e :U 865 ]
-"114
-}
-[; ;main.c: 113: }
-[; ;main.c: 114: }
-[e $U 866  ]
+[; ;main.c: 109: }
+[; ;main.c: 112: INTCONbits.TMR0IF = 0;
+"112
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 115: }
 "115
-[e :U 863 ]
-[; ;main.c: 115: else{
-{
-[; ;main.c: 116: CCP4CONbits.CCP4M = 0b0101;
-"116
-[e = . . _CCP4CONbits 0 0 -> -> 5 `i `uc ]
-[; ;main.c: 117: encoderA = 0;
+[e :UE 860 ]
+}
 "117
-[e = _encoderA -> -> 0 `i `uc ]
+[v _CCP4_CallBack `(v ~T0 @X0 1 ef1`ui ]
 "118
-}
-[e :U 866 ]
-[; ;main.c: 118: }
-[; ;main.c: 120: PIR4bits.CCP4IF = 0;
-"120
-[e = . . _PIR4bits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 121: }
-"121
-[e :UE 862 ]
-}
-"123
-[v _CCP5_CallBack `(v ~T0 @X0 1 ef1`ui ]
-"124
 {
-[; ;main.c: 123: void CCP5_CallBack(uint16_t capturedValue)
-[; ;main.c: 124: {
-[e :U _CCP5_CallBack ]
-"123
+[; ;main.c: 117: void CCP4_CallBack(uint16_t capturedValue)
+[; ;main.c: 118: {
+[e :U _CCP4_CallBack ]
+"117
 [v _capturedValue `ui ~T0 @X0 1 r1 ]
-"124
+"118
 [f ]
-[; ;main.c: 125: if(CCP5CONbits.CCP5M == 0b0101){
+[; ;main.c: 119: if(CCP4CONbits.CCP4M == 0b0101){
+"119
+[e $ ! == -> . . _CCP4CONbits 0 0 `i -> 5 `i 870  ]
+{
+[; ;main.c: 120: CCP4CONbits.CCP4M = 0b0100;
+"120
+[e = . . _CCP4CONbits 0 0 -> -> 4 `i `uc ]
+[; ;main.c: 121: encoderA = 1;
+"121
+[e = _encoderA -> -> 1 `i `uc ]
+[; ;main.c: 122: if(encoderB==0){
+"122
+[e $ ! == -> _encoderB `i -> 0 `i 871  ]
+{
+[; ;main.c: 123: encoderPosition++;
+"123
+[e ++ _encoderPosition -> -> 1 `i `l ]
+"124
+}
+[; ;main.c: 124: }
+[e $U 872  ]
 "125
-[e $ ! == -> . . _CCP5CONbits 0 0 `i -> 5 `i 868  ]
+[e :U 871 ]
+[; ;main.c: 125: else{
 {
-[; ;main.c: 126: CCP5CONbits.CCP5M = 0b0100;
+[; ;main.c: 126: encoderPosition--;
 "126
-[e = . . _CCP5CONbits 0 0 -> -> 4 `i `uc ]
-[; ;main.c: 127: encoderB = 1;
+[e -- _encoderPosition -> -> 1 `i `l ]
 "127
-[e = _encoderB -> -> 1 `i `uc ]
+}
+[e :U 872 ]
+"128
+}
+[; ;main.c: 127: }
+[; ;main.c: 128: }
+[e $U 873  ]
 "129
-}
-[; ;main.c: 129: }
-[e $U 869  ]
-"130
-[e :U 868 ]
-[; ;main.c: 130: else{
+[e :U 870 ]
+[; ;main.c: 129: else{
 {
-[; ;main.c: 131: CCP5CONbits.CCP5M = 0b0101;
+[; ;main.c: 130: CCP4CONbits.CCP4M = 0b0101;
+"130
+[e = . . _CCP4CONbits 0 0 -> -> 5 `i `uc ]
+[; ;main.c: 131: encoderA = 0;
 "131
-[e = . . _CCP5CONbits 0 0 -> -> 5 `i `uc ]
-[; ;main.c: 132: encoderB = 0;
+[e = _encoderA -> -> 0 `i `uc ]
 "132
-[e = _encoderB -> -> 0 `i `uc ]
-"133
 }
-[e :U 869 ]
-[; ;main.c: 133: }
-[; ;main.c: 135: PIR4bits.CCP5IF = 0;
+[e :U 873 ]
+[; ;main.c: 132: }
+[; ;main.c: 134: PIR4bits.CCP4IF = 0;
+"134
+[e = . . _PIR4bits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 135: }
 "135
+[e :UE 869 ]
+}
+"137
+[v _CCP5_CallBack `(v ~T0 @X0 1 ef1`ui ]
+"138
+{
+[; ;main.c: 137: void CCP5_CallBack(uint16_t capturedValue)
+[; ;main.c: 138: {
+[e :U _CCP5_CallBack ]
+"137
+[v _capturedValue `ui ~T0 @X0 1 r1 ]
+"138
+[f ]
+[; ;main.c: 139: if(CCP5CONbits.CCP5M == 0b0101){
+"139
+[e $ ! == -> . . _CCP5CONbits 0 0 `i -> 5 `i 875  ]
+{
+[; ;main.c: 140: CCP5CONbits.CCP5M = 0b0100;
+"140
+[e = . . _CCP5CONbits 0 0 -> -> 4 `i `uc ]
+[; ;main.c: 141: encoderB = 1;
+"141
+[e = _encoderB -> -> 1 `i `uc ]
+"143
+}
+[; ;main.c: 143: }
+[e $U 876  ]
+"144
+[e :U 875 ]
+[; ;main.c: 144: else{
+{
+[; ;main.c: 145: CCP5CONbits.CCP5M = 0b0101;
+"145
+[e = . . _CCP5CONbits 0 0 -> -> 5 `i `uc ]
+[; ;main.c: 146: encoderB = 0;
+"146
+[e = _encoderB -> -> 0 `i `uc ]
+"147
+}
+[e :U 876 ]
+[; ;main.c: 147: }
+[; ;main.c: 149: PIR4bits.CCP5IF = 0;
+"149
 [e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 136: }
-"136
-[e :UE 867 ]
+[; ;main.c: 150: }
+"150
+[e :UE 874 ]
 }
 [p f _printf 8914064 ]
 [a 4C 73 110 99 114 101 109 101 110 116 105 110 103 32 83 101 114 118 111 32 80 111 115 105 116 105 111 110 58 32 37 117 13 10 0 ]
 [a 5C 68 101 99 114 101 109 101 110 116 105 110 103 32 83 101 114 118 111 32 80 111 115 105 116 105 111 110 58 32 37 117 13 10 0 ]
+[a 8C 111 107 13 10 0 ]
 [a 7C 32 107 13 10 0 ]
 [a 6C 69 110 99 111 100 101 114 32 80 111 115 105 116 105 111 110 58 32 37 108 100 13 10 0 ]
-[a 9C 85 110 107 110 111 119 110 32 107 101 121 32 37 99 13 10 0 ]
+[a 11C 85 110 107 110 111 119 110 32 107 101 121 32 37 99 13 10 0 ]
 [a 1C 67 111 110 110 101 99 116 32 82 65 49 32 116 111 32 83 101 114 118 111 32 68 97 116 97 13 10 0 ]
 [a 3C 67 111 110 110 101 99 116 32 82 65 52 32 116 111 32 69 110 99 111 100 101 114 32 66 13 10 0 ]
 [a 2C 67 111 110 110 101 99 116 32 82 66 48 32 116 111 32 69 110 99 111 100 101 114 32 65 13 10 0 ]
-[a 8C 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 0 ]
+[a 9C 82 101 99 105 101 118 101 100 32 37 117 32 102 114 111 109 32 69 85 83 65 82 84 49 13 10 0 ]
+[a 10C 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 0 ]

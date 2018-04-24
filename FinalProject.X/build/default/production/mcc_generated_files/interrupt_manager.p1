@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"15035 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
+"15035 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
 [s S723 :1 `uc 1 ]
 [n S723 . NOT_BOR ]
 "15038
@@ -41,7 +41,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS795 ~T0 @X0 0 e@4082 ]
 "290 mcc_generated_files/tmr0.h
 [v _TMR0_ISR `(v ~T0 @X0 0 ef ]
-"5964 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
+"5964 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
 [s S309 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S309 . CCP3IE CCP4IE CCP5IE ]
 "5963
@@ -67,7 +67,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f26k22.h: 50: extern volatile unsigned char ANSELA @ 0xF38;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
+"52 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
 [; ;pic18f26k22.h: 52: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f26k22.h: 55: typedef union {
@@ -6354,8 +6354,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 126: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 138: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 146: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 158: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -6470,8 +6470,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart2.h: 241: bool EUSART2_is_tx_done(void);
 [; ;eusart2.h: 261: uint8_t EUSART2_Read(void);
 [; ;eusart2.h: 281: void EUSART2_Write(uint8_t txData);
-[; ;mcc.h: 74: void SYSTEM_Initialize(void);
-[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
+[; ;eusart1.h: 97: void EUSART1_Initialize(void);
+[; ;eusart1.h: 145: bool EUSART1_is_tx_ready(void);
+[; ;eusart1.h: 193: bool EUSART1_is_rx_ready(void);
+[; ;eusart1.h: 240: bool EUSART1_is_tx_done(void);
+[; ;eusart1.h: 260: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 280: void EUSART1_Write(uint8_t txData);
+[; ;mcc.h: 75: void SYSTEM_Initialize(void);
+[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
 "52 mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize `(v ~T0 @X0 1 ef ]
 "53

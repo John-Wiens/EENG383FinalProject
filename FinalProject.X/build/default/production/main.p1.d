@@ -2,6 +2,7 @@
  build/default/production/main.p1:  \
  main.c  \
 mcc_generated_files/mcc.h  \
+mcc_generated_files/eusart1.h  \
 mcc_generated_files/eusart2.h  \
 mcc_generated_files/ccp4.h  \
 mcc_generated_files/ccp5.h  \

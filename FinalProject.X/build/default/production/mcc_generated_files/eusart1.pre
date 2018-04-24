@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "mcc_generated_files/eusart1.c"
 
 # 26 "/Applications/microchip/xc8/v1.45/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8111,11 +8111,8 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 146 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-
-# 158
-void PIN_MANAGER_IOC(void);
+# 12 "/Applications/microchip/xc8/v1.45/include/stdbool.h"
+typedef unsigned char bool;
 
 # 13 "/Applications/microchip/xc8/v1.45/include/stdint.h"
 typedef signed char int8_t;
@@ -8207,199 +8204,6 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 12 "/Applications/microchip/xc8/v1.45/include/stdbool.h"
-typedef unsigned char bool;
-
-# 109 "mcc_generated_files/interrupt_manager.h"
-void interrupt INTERRUPT_InterruptManager(void);
-
-# 121
-void INTERRUPT_Initialize (void);
-
-# 80 "mcc_generated_files/ccp4.h"
-typedef union CCPR4Reg_tag
-{
-struct
-{
-uint8_t ccpr4l;
-uint8_t ccpr4h;
-};
-struct
-{
-uint16_t ccpr4_16Bit;
-};
-} CCP_PERIOD_REG_T ;
-
-# 123
-void CCP4_Initialize(void);
-
-# 139
-void CCP4_CaptureISR(void);
-
-# 160
-void CCP4_CallBack(uint16_t capturedValue);
-
-# 80 "mcc_generated_files/ccp5.h"
-typedef union CCPR5Reg_tag
-{
-struct
-{
-uint8_t ccpr5l;
-uint8_t ccpr5h;
-};
-struct
-{
-uint16_t ccpr5_16Bit;
-};
-} CCP_PERIOD_REG_T ;
-
-# 123
-void CCP5_Initialize(void);
-
-# 139
-void CCP5_CaptureISR(void);
-
-# 160
-void CCP5_CallBack(uint16_t capturedValue);
-
-# 94 "mcc_generated_files/tmr3.h"
-void TMR3_Initialize(void);
-
-# 125
-void TMR3_StartTimer(void);
-
-# 155
-void TMR3_StopTimer(void);
-
-# 189
-uint16_t TMR3_ReadTimer(void);
-
-# 215
-void TMR3_WriteTimer(uint16_t timerVal);
-
-# 247
-void TMR3_Reload(void);
-
-# 288
-void TMR3_StartSinglePulseAcquisition(void);
-
-# 329
-uint8_t TMR3_CheckGateValueStatus(void);
-
-# 367
-bool TMR3_HasOverflowOccured(void);
-
-# 100 "mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-
-# 129
-void TMR0_StartTimer(void);
-
-# 161
-void TMR0_StopTimer(void);
-
-# 197
-uint16_t TMR0_ReadTimer(void);
-
-# 236
-void TMR0_WriteTimer(uint16_t timerVal);
-
-# 272
-void TMR0_Reload(void);
-
-# 290
-void TMR0_ISR(void);
-
-# 309
-void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-
-# 327
-extern void (*TMR0_InterruptHandler)(void);
-
-# 345
-void TMR0_DefaultInterruptHandler(void);
-
-# 4 "/Applications/microchip/xc8/v1.45/include/__size_t.h"
-typedef unsigned size_t;
-
-# 7 "/Applications/microchip/xc8/v1.45/include/stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "/Applications/microchip/xc8/v1.45/include/stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "/Applications/microchip/xc8/v1.45/include/errno.h"
-extern int errno;
-
-# 12 "/Applications/microchip/xc8/v1.45/include/conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "/Applications/microchip/xc8/v1.45/include/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 98 "mcc_generated_files/eusart2.h"
-void EUSART2_Initialize(void);
-
-# 146
-bool EUSART2_is_tx_ready(void);
-
-# 194
-bool EUSART2_is_rx_ready(void);
-
-# 241
-bool EUSART2_is_tx_done(void);
-
-# 261
-uint8_t EUSART2_Read(void);
-
-# 281
-void EUSART2_Write(uint8_t txData);
-
 # 97 "mcc_generated_files/eusart1.h"
 void EUSART1_Initialize(void);
 
@@ -8418,149 +8222,68 @@ uint8_t EUSART1_Read(void);
 # 280
 void EUSART1_Write(uint8_t txData);
 
-# 75 "mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-
-# 88
-void OSCILLATOR_Initialize(void);
-
-# 12 "main.c"
-void setYawServo(uint16_t);
-
-uint16_t yawPosition = 3000;
-uint8_t encoderA;
-uint8_t encoderB;
-int32_t encoderPosition = 0;
-
-
-void main (void) {
-char cmd, cmd2;
-(INTCONbits.GIE = 1);
-(INTCONbits.PEIE = 1);
-
-SYSTEM_Initialize();
-
-
-for(;;) {
-if ((EUSART2_is_rx_ready())) {
-cmd = EUSART2_Read();
-switch (cmd) {
-case '?':
-printf("Connect RA1 to Servo Data\r\n");
-printf("Connect RB0 to Encoder A\r\n");
-printf("Connect RA4 to Encoder B\r\n");
-break;
-case 'S':
-setYawServo(yawPosition+100);
-printf("Incrementing Servo Position: %u\r\n",yawPosition);
-break;
-case 's':
-setYawServo(yawPosition-100);
-printf("Decrementing Servo Position: %u\r\n",yawPosition);
-break;
-case 'E':
-while(!(EUSART2_is_rx_ready())){
-printf("Encoder Position: %ld\r\n",encoderPosition);
-}
-EUSART2_Read();
-break;
-case 'o':
-printf(" k\r\n");
-break;
-case 'u':
-while (!(EUSART2_is_rx_ready())) {
-if ((EUSART1_is_rx_ready())) {
-cmd2 = EUSART1_Read();
-if (cmd2 == 'o') {
-printf("ok\r\n");
-}
-else {
-printf("Recieved %u from EUSART1\r\n", cmd2);
-}
-}
-}
-EUSART2_Read();
-break;
-case 'z':
-printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-break;
-case 'Z':
-asm("reset");
-break;
-default:
-printf("Unknown key %c\r\n",cmd);
-break;
-}
-
-}
-}
-}
-
-void setYawServo(uint16_t pos){
-
-if(pos < 1106){
-pos = 1106;
-}
-else if(pos > 4900){
-pos = 4900;
-}
-
-yawPosition = pos;
-}
-
-
-
-void TMR0_DefaultInterruptHandler(void){
-
-static uint8_t pulseHigh = 0;
-if(!pulseHigh){
-do { LATAbits.LATA1 = 1; } while(0);
-TMR0_WriteTimer(0xFFFF -yawPosition );
-pulseHigh = 1;
-}
-else{
-do { LATAbits.LATA1 = 0; } while(0);
-TMR0_WriteTimer(0xFFFF -40000 );
-pulseHigh = 0;
-}
-
-
-INTCONbits.TMR0IF = 0;
-
-
-}
-
-void CCP4_CallBack(uint16_t capturedValue)
+# 56 "mcc_generated_files/eusart1.c"
+void EUSART1_Initialize(void)
 {
-if(CCP4CONbits.CCP4M == 0b0101){
-CCP4CONbits.CCP4M = 0b0100;
-encoderA = 1;
-if(encoderB==0){
-encoderPosition++;
-}
-else{
-encoderPosition--;
-}
-}
-else{
-CCP4CONbits.CCP4M = 0b0101;
-encoderA = 0;
+
+
+
+BAUDCON1 = 0x08;
+
+
+RCSTA1 = 0x90;
+
+
+TXSTA1 = 0x24;
+
+
+SPBRG1 = 0x82;
+
+
+SPBRGH1 = 0x06;
+
+
 }
 
-PIR4bits.CCP4IF = 0;
-}
-
-void CCP5_CallBack(uint16_t capturedValue)
+bool EUSART1_is_tx_ready(void)
 {
-if(CCP5CONbits.CCP5M == 0b0101){
-CCP5CONbits.CCP5M = 0b0100;
-encoderB = 1;
-
-}
-else{
-CCP5CONbits.CCP5M = 0b0101;
-encoderB = 0;
+return (bool)(PIR1bits.TX1IF && TXSTA1bits.TXEN);
 }
 
-PIR4bits.CCP5IF = 0;
+bool EUSART1_is_rx_ready(void)
+{
+return PIR1bits.RC1IF;
 }
+
+bool EUSART1_is_tx_done(void)
+{
+return TXSTA1bits.TRMT;
+}
+
+uint8_t EUSART1_Read(void)
+{
+while(!PIR1bits.RC1IF)
+{
+}
+
+
+if(1 == RCSTA1bits.OERR)
+{
+
+
+RCSTA1bits.CREN = 0;
+RCSTA1bits.CREN = 1;
+}
+
+return RCREG1;
+}
+
+void EUSART1_Write(uint8_t txData)
+{
+while(0 == PIR1bits.TX1IF)
+{
+}
+
+TXREG1 = txData;
+}
+

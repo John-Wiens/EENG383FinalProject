@@ -1,6 +1,18 @@
 #include "mcc_generated_files/mcc.h"
 
-
+/*
+ * protocol will be 1 command byte folowed by one data byte:
+ * commands:
+ *     p: set pan position (type int8_t)
+ *     t: set tilt position (type int8_t)
+ *     s: set slide speed (type int8_t)
+ *     h: goto home (no data byte)
+ *     l: goto left (no data byte)
+ *     r: goto right (no data byte)
+ *     H: set home (no data byte)
+ *     L: set left (no data byte)
+ *     R: set right (no data byte)
+ */
 
 #define YAW_MIN         1106
 #define YAW_MAX         4900
@@ -18,7 +30,7 @@ int32_t encoderPosition = 0;
 
 
 void main (void) {
-    char cmd;
+    char cmd, cmd2;
     INTERRUPT_GlobalInterruptEnable();
     INTERRUPT_PeripheralInterruptEnable();
     
@@ -50,6 +62,20 @@ void main (void) {
                     break;
                 case 'o':
                     printf(" k\r\n");
+                    break;
+                case 'u':
+                    while (!EUSART2_DataReady) {
+                        if (EUSART1_DataReady) {
+                            cmd2 = EUSART1_Read();
+                            if (cmd2 == 'o') {
+                                printf("ok\r\n");
+                            }
+                            else {
+                                printf("Recieved %u from EUSART1\r\n", cmd2);
+                            }
+                        }
+                    }
+                    EUSART2_Read();
                     break;
                 case 'z':
                     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
