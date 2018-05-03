@@ -1,17 +1,17 @@
 /**
-  EUSART2 Generated Driver File
+  TMR2 Generated Driver File
 
   @Company
     Microchip Technology Inc.
 
   @File Name
-    eusart2.c
+    tmr2.c
 
   @Summary
-    This is the generated driver implementation file for the EUSART2 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated driver implementation file for the TMR2 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
   @Description
-    This source file provides APIs for EUSART2.
+    This source file provides APIs for TMR2.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.65.2
         Device            :  PIC18F26K22
@@ -47,87 +47,91 @@
 /**
   Section: Included Files
 */
-#include "eusart2.h"
 
+#include <xc.h>
+#include "tmr2.h"
 
 /**
-  Section: EUSART2 APIs
+  Section: Global Variables Definitions
 */
-void EUSART2_Initialize(void)
+
+void (*TMR2_InterruptHandler)(void);
+
+/**
+  Section: TMR2 APIs
+*/
+
+void TMR2_Initialize(void)
 {
-    // Set the EUSART2 module to the options selected in the user interface.
+    // Set TMR2 to the options selected in the User Interface
 
-    // ABDOVF no_overflow; CKTXP async_noninverted_sync_fallingedge; BRG16 16bit_generator; WUE disabled; ABDEN disabled; DTRXP not_inverted; 
-    BAUDCON2 = 0x08;
+    // PR2 255; 
+    PR2 = 0xFF;
 
-    // SPEN enabled; RX9 8-bit; CREN enabled; ADDEN disabled; SREN disabled; 
-    RCSTA2 = 0x90;
+    // TMR2 0; 
+    TMR2 = 0x00;
 
-    // TX9 8-bit; TX9D 0; SENDB sync_break_complete; TXEN enabled; SYNC asynchronous; BRGH hi_speed; CSRC slave_mode; 
-    TXSTA2 = 0x24;
+    // Clearing IF flag before enabling the interrupt.
+    PIR1bits.TMR2IF = 0;
 
-    // 
-    SPBRG2 = 0x8A;
+    // Enabling TMR2 interrupt.
+    PIE1bits.TMR2IE = 1;
 
-    // 
-    SPBRGH2 = 0x00;
+    // Set Default Interrupt Handler
+    TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
 
-
+    // T2CKPS 1:16; T2OUTPS 1:1; TMR2ON on; 
+    T2CON = 0x06;
 }
 
-bool EUSART2_is_tx_ready(void)
+void TMR2_StartTimer(void)
 {
-    return (bool)(PIR3bits.TX2IF && TXSTA2bits.TXEN);
+    // Start the Timer by writing to TMRxON bit
+    T2CONbits.TMR2ON = 1;
 }
 
-bool EUSART2_is_rx_ready(void)
+void TMR2_StopTimer(void)
 {
-    return PIR3bits.RC2IF;
+    // Stop the Timer by writing to TMRxON bit
+    T2CONbits.TMR2ON = 0;
 }
 
-bool EUSART2_is_tx_done(void)
+uint8_t TMR2_ReadTimer(void)
 {
-    return TXSTA2bits.TRMT;
+    uint8_t readVal;
+
+    readVal = TMR2;
+
+    return readVal;
 }
 
-uint8_t EUSART2_Read(void)
+void TMR2_WriteTimer(uint8_t timerVal)
 {
-    while(!PIR3bits.RC2IF)
+    // Write to the Timer2 register
+    TMR2 = timerVal;
+}
+
+void TMR2_LoadPeriodRegister(uint8_t periodVal)
+{
+   PR2 = periodVal;
+}
+
+void TMR2_ISR(void)
+{
+
+    // clear the TMR2 interrupt flag
+    PIR1bits.TMR2IF = 0;
+
+    if(TMR2_InterruptHandler)
     {
+        TMR2_InterruptHandler();
     }
-
-    
-    if(1 == RCSTA2bits.OERR)
-    {
-        // EUSART2 error - restart
-
-        RCSTA2bits.CREN = 0; 
-        RCSTA2bits.CREN = 1; 
-    }
-
-    return RCREG2;
-}
-
-void EUSART2_Write(uint8_t txData)
-{
-    while(0 == PIR3bits.TX2IF)
-    {
-    }
-
-    TXREG2 = txData;    // Write the data byte to the USART.
-}
-
-char getch(void)
-{
-    return EUSART2_Read();
-}
-
-void putch(char txData)
-{
-    EUSART2_Write(txData);
 }
 
 
+void TMR2_SetInterruptHandler(void (* InterruptHandler)(void)){
+    TMR2_InterruptHandler = InterruptHandler;
+}
 
 
 /**

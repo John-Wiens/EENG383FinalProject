@@ -59,6 +59,20 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set PITCH_SERVO_PIN aliases
+#define PITCH_SERVO_PIN_TRIS                 TRISAbits.TRISA0
+#define PITCH_SERVO_PIN_LAT                  LATAbits.LATA0
+#define PITCH_SERVO_PIN_PORT                 PORTAbits.RA0
+#define PITCH_SERVO_PIN_ANS                  ANSELAbits.ANSA0
+#define PITCH_SERVO_PIN_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
+#define PITCH_SERVO_PIN_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
+#define PITCH_SERVO_PIN_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define PITCH_SERVO_PIN_GetValue()           PORTAbits.RA0
+#define PITCH_SERVO_PIN_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
+#define PITCH_SERVO_PIN_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
+#define PITCH_SERVO_PIN_SetAnalogMode()      do { ANSELAbits.ANSA0 = 1; } while(0)
+#define PITCH_SERVO_PIN_SetDigitalMode()     do { ANSELAbits.ANSA0 = 0; } while(0)
+
 // get/set YAW_SERVO_PIN aliases
 #define YAW_SERVO_PIN_TRIS                 TRISAbits.TRISA1
 #define YAW_SERVO_PIN_LAT                  LATAbits.LATA1
@@ -72,6 +86,20 @@
 #define YAW_SERVO_PIN_SetDigitalOutput()   do { TRISAbits.TRISA1 = 0; } while(0)
 #define YAW_SERVO_PIN_SetAnalogMode()      do { ANSELAbits.ANSA1 = 1; } while(0)
 #define YAW_SERVO_PIN_SetDigitalMode()     do { ANSELAbits.ANSA1 = 0; } while(0)
+
+// get/set MOTOR_PIN aliases
+#define MOTOR_PIN_TRIS                 TRISAbits.TRISA2
+#define MOTOR_PIN_LAT                  LATAbits.LATA2
+#define MOTOR_PIN_PORT                 PORTAbits.RA2
+#define MOTOR_PIN_ANS                  ANSELAbits.ANSA2
+#define MOTOR_PIN_SetHigh()            do { LATAbits.LATA2 = 1; } while(0)
+#define MOTOR_PIN_SetLow()             do { LATAbits.LATA2 = 0; } while(0)
+#define MOTOR_PIN_Toggle()             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0)
+#define MOTOR_PIN_GetValue()           PORTAbits.RA2
+#define MOTOR_PIN_SetDigitalInput()    do { TRISAbits.TRISA2 = 1; } while(0)
+#define MOTOR_PIN_SetDigitalOutput()   do { TRISAbits.TRISA2 = 0; } while(0)
+#define MOTOR_PIN_SetAnalogMode()      do { ANSELAbits.ANSA2 = 1; } while(0)
+#define MOTOR_PIN_SetDigitalMode()     do { ANSELAbits.ANSA2 = 0; } while(0)
 
 // get/set RA4 procedures
 #define RA4_SetHigh()               do { LATAbits.LATA4 = 1; } while(0)

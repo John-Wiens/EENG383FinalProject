@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F6690 `(v ~T0 @X0 0 tf ]
-"15336 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
+"15336 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
 [s S739 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S739 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
 "15344
@@ -34,13 +34,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F6687 ]
 "345
 [v _TMR0_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
-"15330 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
+"15330 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
 [v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f26k22.h: 50: extern volatile unsigned char ANSELA @ 0xF38;
-"52 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
 [; ;pic18f26k22.h: 52: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f26k22.h: 55: typedef union {

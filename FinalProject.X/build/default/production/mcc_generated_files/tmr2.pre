@@ -1,5 +1,5 @@
 
-# 1 "mcc_generated_files/ccp4.c"
+# 1 "mcc_generated_files/tmr2.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8204,65 +8204,109 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
-# 80 "mcc_generated_files/ccp4.h"
-typedef union CCPR4Reg_tag
+# 103 "mcc_generated_files/tmr2.h"
+void TMR2_Initialize(void);
+
+# 132
+void TMR2_StartTimer(void);
+
+# 164
+void TMR2_StopTimer(void);
+
+# 199
+uint8_t TMR2_ReadTimer(void);
+
+# 238
+void TMR2_WriteTimer(uint8_t timerVal);
+
+# 290
+void TMR2_LoadPeriodRegister(uint8_t periodVal);
+
+# 308
+void TMR2_ISR(void);
+
+# 326
+void TMR2_SetInterruptHandler(void (* InterruptHandler)(void));
+
+# 344
+extern void (*TMR2_InterruptHandler)(void);
+
+# 362
+void TMR2_DefaultInterruptHandler(void);
+
+# 58 "mcc_generated_files/tmr2.c"
+void (*TMR2_InterruptHandler)(void);
+
+# 64
+void TMR2_Initialize(void)
 {
-struct
-{
-uint8_t ccpr4l;
-uint8_t ccpr4h;
-};
-struct
-{
-uint16_t ccpr4_16Bit;
-};
-} CCP_PERIOD_REG_T ;
-
-# 123
-void CCP4_Initialize(void);
-
-# 139
-void CCP4_CaptureISR(void);
-
-# 160
-void CCP4_CallBack(uint16_t capturedValue);
-
-# 58 "mcc_generated_files/ccp4.c"
-void CCP4_Initialize(void)
-{
 
 
 
-CCP4CON = 0x05;
+PR2 = 0xFF;
 
 
-CCPR4L = 0x00;
+TMR2 = 0x00;
 
 
-CCPR4H = 0x00;
+PIR1bits.TMR2IF = 0;
 
 
-CCPTMRS1bits.C4TSEL = 0x1;
+PIE1bits.TMR2IE = 1;
 
 
-PIR4bits.CCP4IF = 0;
+TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
 
 
-PIE4bits.CCP4IE = 1;
+T2CON = 0x06;
 }
 
-void CCP4_CaptureISR(void)
+void TMR2_StartTimer(void)
 {
-CCP_PERIOD_REG_T module;
+
+T2CONbits.TMR2ON = 1;
+}
+
+void TMR2_StopTimer(void)
+{
+
+T2CONbits.TMR2ON = 0;
+}
+
+uint8_t TMR2_ReadTimer(void)
+{
+uint8_t readVal;
+
+readVal = TMR2;
+
+return readVal;
+}
+
+void TMR2_WriteTimer(uint8_t timerVal)
+{
+
+TMR2 = timerVal;
+}
+
+void TMR2_LoadPeriodRegister(uint8_t periodVal)
+{
+PR2 = periodVal;
+}
+
+void TMR2_ISR(void)
+{
 
 
-PIR4bits.CCP4IF = 0;
+PIR1bits.TMR2IF = 0;
+
+if(TMR2_InterruptHandler)
+{
+TMR2_InterruptHandler();
+}
+}
 
 
-module.ccpr4l = CCPR4L;
-module.ccpr4h = CCPR4H;
-
-
-CCP4_CallBack(module.ccpr4_16Bit);
+void TMR2_SetInterruptHandler(void (* InterruptHandler)(void)){
+TMR2_InterruptHandler = InterruptHandler;
 }
 

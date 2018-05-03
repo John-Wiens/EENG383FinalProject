@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1951 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
+"1951 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
 [v _CCP4CON `Vuc ~T0 @X0 0 e@3927 ]
 "2022
 [v _CCPR4L `Vuc ~T0 @X0 0 e@3928 ]
@@ -47,7 +47,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f26k22.h: 50: extern volatile unsigned char ANSELA @ 0xF38;
-"52 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
 [; ;pic18f26k22.h: 52: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f26k22.h: 55: typedef union {

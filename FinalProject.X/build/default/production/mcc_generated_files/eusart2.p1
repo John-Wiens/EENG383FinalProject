@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"4180 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
+"4180 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
 [v _BAUDCON2 `Vuc ~T0 @X0 0 e@3952 ]
 "4442
 [v _RCSTA2 `Vuc ~T0 @X0 0 e@3953 ]
@@ -62,7 +62,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f26k22.h: 50: extern volatile unsigned char ANSELA @ 0xF38;
-"52 /Applications/microchip/xc8/v1.45/include/pic18f26k22.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f26k22.h
 [; ;pic18f26k22.h: 52: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f26k22.h: 55: typedef union {
@@ -6431,12 +6431,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart2.c: 67: TXSTA2 = 0x24;
 "67
 [e = _TXSTA2 -> -> 36 `i `uc ]
-[; ;eusart2.c: 70: SPBRG2 = 0x82;
+[; ;eusart2.c: 70: SPBRG2 = 0x8A;
 "70
-[e = _SPBRG2 -> -> 130 `i `uc ]
-[; ;eusart2.c: 73: SPBRGH2 = 0x06;
+[e = _SPBRG2 -> -> 138 `i `uc ]
+[; ;eusart2.c: 73: SPBRGH2 = 0x00;
 "73
-[e = _SPBRGH2 -> -> 6 `i `uc ]
+[e = _SPBRGH2 -> -> 0 `i `uc ]
 [; ;eusart2.c: 76: }
 "76
 [e :UE 825 ]

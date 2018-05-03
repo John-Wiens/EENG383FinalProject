@@ -68,9 +68,21 @@ void interrupt INTERRUPT_InterruptManager (void)
         {
             CCP5_CaptureISR();
         } 
+        else if(PIE5bits.TMR5IE == 1 && PIR5bits.TMR5IF == 1)
+        {
+            TMR5_ISR();
+        } 
         else if(PIE4bits.CCP4IE == 1 && PIR4bits.CCP4IF == 1)
         {
             CCP4_CaptureISR();
+        } 
+        else if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
+        {
+            TMR2_ISR();
+        } 
+        else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+        {
+            TMR1_ISR();
         } 
         else
         {

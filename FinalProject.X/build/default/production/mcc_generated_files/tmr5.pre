@@ -1,5 +1,5 @@
 
-# 1 "mcc_generated_files/ccp4.c"
+# 1 "mcc_generated_files/tmr5.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8111,6 +8111,9 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+typedef unsigned char bool;
+
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
 typedef signed char int8_t;
 
@@ -8201,68 +8204,156 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
-typedef unsigned char bool;
+# 94 "mcc_generated_files/tmr5.h"
+void TMR5_Initialize(void);
 
-# 80 "mcc_generated_files/ccp4.h"
-typedef union CCPR4Reg_tag
+# 125
+void TMR5_StartTimer(void);
+
+# 155
+void TMR5_StopTimer(void);
+
+# 189
+uint16_t TMR5_ReadTimer(void);
+
+# 215
+void TMR5_WriteTimer(uint16_t timerVal);
+
+# 247
+void TMR5_Reload(void);
+
+# 288
+void TMR5_StartSinglePulseAcquisition(void);
+
+# 329
+uint8_t TMR5_CheckGateValueStatus(void);
+
+# 345
+void TMR5_ISR(void);
+
+# 364
+void TMR5_SetInterruptHandler(void (* InterruptHandler)(void));
+
+# 382
+extern void (*TMR5_InterruptHandler)(void);
+
+# 400
+void TMR5_DefaultInterruptHandler(void);
+
+# 57 "mcc_generated_files/tmr5.c"
+volatile uint16_t timer5ReloadVal;
+void (*TMR5_InterruptHandler)(void);
+
+# 64
+void TMR5_Initialize(void)
 {
-struct
-{
-uint8_t ccpr4l;
-uint8_t ccpr4h;
-};
-struct
-{
-uint16_t ccpr4_16Bit;
-};
-} CCP_PERIOD_REG_T ;
-
-# 123
-void CCP4_Initialize(void);
-
-# 139
-void CCP4_CaptureISR(void);
-
-# 160
-void CCP4_CallBack(uint16_t capturedValue);
-
-# 58 "mcc_generated_files/ccp4.c"
-void CCP4_Initialize(void)
-{
 
 
 
-CCP4CON = 0x05;
+T5GCON = 0x00;
 
 
-CCPR4L = 0x00;
+TMR5H = 0xE0;
 
 
-CCPR4H = 0x00;
+TMR5L = 0x00;
 
 
-CCPTMRS1bits.C4TSEL = 0x1;
+timer5ReloadVal=TMR5;
 
 
-PIR4bits.CCP4IF = 0;
+PIR5bits.TMR5IF = 0;
 
 
-PIE4bits.CCP4IE = 1;
+PIE5bits.TMR5IE = 1;
+
+
+TMR5_SetInterruptHandler(TMR5_DefaultInterruptHandler);
+
+
+T5CON = 0x31;
 }
 
-void CCP4_CaptureISR(void)
+void TMR5_StartTimer(void)
 {
-CCP_PERIOD_REG_T module;
+
+T5CONbits.TMR5ON = 1;
+}
+
+void TMR5_StopTimer(void)
+{
+
+T5CONbits.TMR5ON = 0;
+}
+
+uint16_t TMR5_ReadTimer(void)
+{
+uint16_t readVal;
+uint8_t readValHigh;
+uint8_t readValLow;
+
+T5CONbits.T5RD16 = 1;
+
+readValLow = TMR5L;
+readValHigh = TMR5H;
+
+readVal = ((uint16_t)readValHigh << 8) | readValLow;
+
+return readVal;
+}
+
+void TMR5_WriteTimer(uint16_t timerVal)
+{
+if (T5CONbits.T5SYNC == 1)
+{
+
+T5CONbits.TMR5ON = 0;
 
 
-PIR4bits.CCP4IF = 0;
+TMR5H = (timerVal >> 8);
+TMR5L = (uint8_t) timerVal;
 
 
-module.ccpr4l = CCPR4L;
-module.ccpr4h = CCPR4H;
+T5CONbits.TMR5ON =1;
+}
+else
+{
+
+TMR5H = (timerVal >> 8);
+TMR5L = (uint8_t) timerVal;
+}
+}
+
+void TMR5_Reload(void)
+{
+TMR5_WriteTimer(timer5ReloadVal);
+}
+
+void TMR5_StartSinglePulseAcquisition(void)
+{
+T5GCONbits.T5GGO = 1;
+}
+
+uint8_t TMR5_CheckGateValueStatus(void)
+{
+return T5GCONbits.T5GVAL;
+}
+
+void TMR5_ISR(void)
+{
 
 
-CCP4_CallBack(module.ccpr4_16Bit);
+PIR5bits.TMR5IF = 0;
+TMR5_WriteTimer(timer5ReloadVal);
+
+if(TMR5_InterruptHandler)
+{
+TMR5_InterruptHandler();
+}
+}
+
+
+void TMR5_SetInterruptHandler(void (* InterruptHandler)(void)){
+TMR5_InterruptHandler = InterruptHandler;
 }
 
