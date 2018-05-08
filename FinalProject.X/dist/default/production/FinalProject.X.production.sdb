@@ -5,6 +5,7 @@
 [d frameptr 4065 ]
 "464 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
+[v i2_printf printf `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -17,8 +18,10 @@
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
+[v i2___lldiv __lldiv `(ul  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
+[v i2___llmod __llmod `(ul  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 3 0 ]
 "245
@@ -31,26 +34,26 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "62 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"206
-[v _setYawServo setYawServo `(v  1 e 1 0 ]
 "217
-[v _setPitchServo setPitchServo `(v  1 e 1 0 ]
+[v _setYawServo setYawServo `(v  1 e 1 0 ]
 "228
+[v _setPitchServo setPitchServo `(v  1 e 1 0 ]
+"239
 [v _setMotorSpeed setMotorSpeed `(v  1 e 1 0 ]
 [v i2_setMotorSpeed setMotorSpeed `(v  1 e 1 0 ]
-"242
+"253
 [v _parseInt parseInt `(ui  1 e 2 0 ]
-"250
+"261
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
-"270
+"283
 [v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
-"287
+"301
 [v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
-"315
+"330
 [v _TMR5_DefaultInterruptHandler TMR5_DefaultInterruptHandler `(v  1 e 1 0 ]
-"332
+"348
 [v _CCP4_CallBack CCP4_CallBack `(v  1 e 1 0 ]
-"352
+"369
 [v _CCP5_CallBack CCP5_CallBack `(v  1 e 1 0 ]
 "58 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/ccp4.c
 [v _CCP4_Initialize CCP4_Initialize `(v  1 e 1 0 ]
@@ -74,8 +77,10 @@
 [v _EUSART2_Read EUSART2_Read `(uc  1 e 1 0 ]
 "111
 [v _EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
+[v i2_EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
 "125
 [v _putch putch `(v  1 e 1 0 ]
+[v i2_putch putch `(v  1 e 1 0 ]
 "52 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 "58
@@ -141,11 +146,11 @@
 [v _CCPTMRS1bits CCPTMRS1bits `VES747  1 e 1 @3912 ]
 "1478
 [v _T5GCON T5GCON `VEuc  1 e 1 @3917 ]
-[s S1726 . 1 `uc 1 . 1 0 :3:0 
+[s S1462 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T5GGO_NOT_DONE 1 0 :1:3 
 ]
 "1508
-[s S1729 . 1 `uc 1 T5GSS 1 0 :2:0 
+[s S1465 . 1 `uc 1 T5GSS 1 0 :2:0 
 `uc 1 T5GVAL 1 0 :1:2 
 `uc 1 T5GGO_nDONE 1 0 :1:3 
 `uc 1 T5GSPM 1 0 :1:4 
@@ -153,30 +158,30 @@
 `uc 1 T5GPOL 1 0 :1:6 
 `uc 1 TMR5GE 1 0 :1:7 
 ]
-[s S1737 . 1 `uc 1 T5GSS0 1 0 :1:0 
+[s S1473 . 1 `uc 1 T5GSS0 1 0 :1:0 
 `uc 1 T5GSS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T5GGO 1 0 :1:3 
 ]
-[s S1742 . 1 `uc 1 . 1 0 :3:0 
+[s S1478 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T5G_DONE 1 0 :1:3 
 ]
-[u S1745 . 1 `S1726 1 . 1 0 `S1729 1 . 1 0 `S1737 1 . 1 0 `S1742 1 . 1 0 ]
-[v _T5GCONbits T5GCONbits `VES1745  1 e 1 @3917 ]
+[u S1481 . 1 `S1462 1 . 1 0 `S1465 1 . 1 0 `S1473 1 . 1 0 `S1478 1 . 1 0 ]
+[v _T5GCONbits T5GCONbits `VES1481  1 e 1 @3917 ]
 "1573
 [v _T5CON T5CON `VEuc  1 e 1 @3918 ]
-[s S1674 . 1 `uc 1 . 1 0 :2:0 
+[s S1410 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T5SYNC 1 0 :1:2 
 ]
 "1607
-[s S1677 . 1 `uc 1 TMR5ON 1 0 :1:0 
+[s S1413 . 1 `uc 1 TMR5ON 1 0 :1:0 
 `uc 1 T5RD16 1 0 :1:1 
 `uc 1 nT5SYNC 1 0 :1:2 
 `uc 1 T5SOSCEN 1 0 :1:3 
 `uc 1 T5CKPS 1 0 :2:4 
 `uc 1 TMR5CS 1 0 :2:6 
 ]
-[s S1684 . 1 `uc 1 . 1 0 :2:0 
+[s S1420 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T5SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T5CKPS0 1 0 :1:4 
@@ -184,13 +189,13 @@
 `uc 1 TMR5CS0 1 0 :1:6 
 `uc 1 TMR5CS1 1 0 :1:7 
 ]
-[s S1692 . 1 `uc 1 . 1 0 :1:0 
+[s S1428 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD165 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SOSCEN5 1 0 :1:3 
 ]
-[u S1697 . 1 `S1674 1 . 1 0 `S1677 1 . 1 0 `S1684 1 . 1 0 `S1692 1 . 1 0 ]
-[v _T5CONbits T5CONbits `VES1697  1 e 1 @3918 ]
+[u S1433 . 1 `S1410 1 . 1 0 `S1413 1 . 1 0 `S1420 1 . 1 0 `S1428 1 . 1 0 ]
+[v _T5CONbits T5CONbits `VES1433  1 e 1 @3918 ]
 "1682
 [v _TMR5 TMR5 `VEus  1 e 2 @3919 ]
 "1689
@@ -199,38 +204,38 @@
 [v _TMR5H TMR5H `VEuc  1 e 1 @3920 ]
 "1840
 [v _CCP5CON CCP5CON `VEuc  1 e 1 @3924 ]
-[s S1360 . 1 `uc 1 CCP5M 1 0 :4:0 
+[s S1799 . 1 `uc 1 CCP5M 1 0 :4:0 
 `uc 1 DC5B 1 0 :2:4 
 ]
 "1859
-[s S1363 . 1 `uc 1 CCP5M0 1 0 :1:0 
+[s S1802 . 1 `uc 1 CCP5M0 1 0 :1:0 
 `uc 1 CCP5M1 1 0 :1:1 
 `uc 1 CCP5M2 1 0 :1:2 
 `uc 1 CCP5M3 1 0 :1:3 
 `uc 1 DC5B0 1 0 :1:4 
 `uc 1 DC5B1 1 0 :1:5 
 ]
-[u S1370 . 1 `S1360 1 . 1 0 `S1363 1 . 1 0 ]
-[v _CCP5CONbits CCP5CONbits `VES1370  1 e 1 @3924 ]
+[u S1809 . 1 `S1799 1 . 1 0 `S1802 1 . 1 0 ]
+[v _CCP5CONbits CCP5CONbits `VES1809  1 e 1 @3924 ]
 "1911
 [v _CCPR5L CCPR5L `VEuc  1 e 1 @3925 ]
 "1931
 [v _CCPR5H CCPR5H `VEuc  1 e 1 @3926 ]
 "1951
 [v _CCP4CON CCP4CON `VEuc  1 e 1 @3927 ]
-[s S1329 . 1 `uc 1 CCP4M 1 0 :4:0 
+[s S1768 . 1 `uc 1 CCP4M 1 0 :4:0 
 `uc 1 DC4B 1 0 :2:4 
 ]
 "1970
-[s S1332 . 1 `uc 1 CCP4M0 1 0 :1:0 
+[s S1771 . 1 `uc 1 CCP4M0 1 0 :1:0 
 `uc 1 CCP4M1 1 0 :1:1 
 `uc 1 CCP4M2 1 0 :1:2 
 `uc 1 CCP4M3 1 0 :1:3 
 `uc 1 DC4B0 1 0 :1:4 
 `uc 1 DC4B1 1 0 :1:5 
 ]
-[u S1339 . 1 `S1329 1 . 1 0 `S1332 1 . 1 0 ]
-[v _CCP4CONbits CCP4CONbits `VES1339  1 e 1 @3927 ]
+[u S1778 . 1 `S1768 1 . 1 0 `S1771 1 . 1 0 ]
+[v _CCP4CONbits CCP4CONbits `VES1778  1 e 1 @3927 ]
 "2022
 [v _CCPR4L CCPR4L `VEuc  1 e 1 @3928 ]
 "2042
@@ -337,7 +342,7 @@
 [v _PIR5bits PIR5bits `VES272  1 e 1 @3966 ]
 "7242
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
-[s S1249 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S1700 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -347,7 +352,7 @@
 `uc 1 LATA7 1 0 :1:7 
 ]
 "7269
-[s S1258 . 1 `uc 1 LA0 1 0 :1:0 
+[s S1709 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -356,8 +361,8 @@
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S1267 . 1 `S1249 1 . 1 0 `S1258 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1267  1 e 1 @3977 ]
+[u S1718 . 1 `S1700 1 . 1 0 `S1709 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1718  1 e 1 @3977 ]
 "7354
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "7466
@@ -549,12 +554,12 @@
 [v _BAUDCON1 BAUDCON1 `VEuc  1 e 1 @4024 ]
 "12433
 [v _T2CON T2CON `VEuc  1 e 1 @4026 ]
-[s S1858 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S1598 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "12454
-[s S1862 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S1602 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -562,19 +567,19 @@
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S1870 . 1 `S1858 1 . 1 0 `S1862 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1870  1 e 1 @4026 ]
+[u S1610 . 1 `S1598 1 . 1 0 `S1602 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1610  1 e 1 @4026 ]
 "12504
 [v _PR2 PR2 `VEuc  1 e 1 @4027 ]
 "12524
 [v _TMR2 TMR2 `VEuc  1 e 1 @4028 ]
 "14774
 [v _T1GCON T1GCON `VEuc  1 e 1 @4044 ]
-[s S1561 . 1 `uc 1 . 1 0 :3:0 
+[s S1293 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO_NOT_DONE 1 0 :1:3 
 ]
 "14804
-[s S1564 . 1 `uc 1 T1GSS 1 0 :2:0 
+[s S1296 . 1 `uc 1 T1GSS 1 0 :2:0 
 `uc 1 T1GVAL 1 0 :1:2 
 `uc 1 T1GGO_nDONE 1 0 :1:3 
 `uc 1 T1GSPM 1 0 :1:4 
@@ -582,30 +587,30 @@
 `uc 1 T1GPOL 1 0 :1:6 
 `uc 1 TMR1GE 1 0 :1:7 
 ]
-[s S1572 . 1 `uc 1 T1GSS0 1 0 :1:0 
+[s S1304 . 1 `uc 1 T1GSS0 1 0 :1:0 
 `uc 1 T1GSS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T1G_DONE 1 0 :1:3 
 ]
-[s S1577 . 1 `uc 1 . 1 0 :3:0 
+[s S1309 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO 1 0 :1:3 
 ]
-[u S1580 . 1 `S1561 1 . 1 0 `S1564 1 . 1 0 `S1572 1 . 1 0 `S1577 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES1580  1 e 1 @4044 ]
+[u S1312 . 1 `S1293 1 . 1 0 `S1296 1 . 1 0 `S1304 1 . 1 0 `S1309 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES1312  1 e 1 @4044 ]
 "14869
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
-[s S1511 . 1 `uc 1 . 1 0 :2:0 
+[s S1243 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "14902
-[s S1514 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S1246 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 T1RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1SOSCEN 1 0 :1:3 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[s S1521 . 1 `uc 1 . 1 0 :1:0 
+[s S1253 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -614,11 +619,11 @@
 `uc 1 TMR1CS0 1 0 :1:6 
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
-[s S1530 . 1 `uc 1 . 1 0 :3:0 
+[s S1262 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 ]
-[u S1533 . 1 `S1511 1 . 1 0 `S1514 1 . 1 0 `S1521 1 . 1 0 `S1530 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES1533  1 e 1 @4045 ]
+[u S1265 . 1 `S1243 1 . 1 0 `S1246 1 . 1 0 `S1253 1 . 1 0 `S1262 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1265  1 e 1 @4045 ]
 "14982
 [v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
 "14989
@@ -769,48 +774,48 @@
 "62 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"168
-[v main@speed speed `ui  1 a 2 35 ]
-"155
-[v main@pos pos `ui  1 a 2 33 ]
+"181
+[v main@speed speed `ui  1 a 2 51 ]
+"169
+[v main@pos pos `ui  1 a 2 48 ]
 "63
-[v main@cmd cmd `uc  1 a 1 37 ]
-[v main@cmd2 cmd2 `uc  1 a 1 32 ]
-"203
-} 0
-"206
-[v _setYawServo setYawServo `(v  1 e 1 0 ]
-{
-[v setYawServo@pos pos `ui  1 p 2 28 ]
-"216
+[v main@cmd cmd `uc  1 a 1 53 ]
+[v main@cmd2 cmd2 `uc  1 a 1 50 ]
+"214
 } 0
 "217
-[v _setPitchServo setPitchServo `(v  1 e 1 0 ]
+[v _setYawServo setYawServo `(v  1 e 1 0 ]
 {
-[v setPitchServo@pos pos `ui  1 p 2 28 ]
+[v setYawServo@pos pos `ui  1 p 2 0 ]
 "227
 } 0
 "228
+[v _setPitchServo setPitchServo `(v  1 e 1 0 ]
+{
+[v setPitchServo@pos pos `ui  1 p 2 0 ]
+"238
+} 0
+"239
 [v _setMotorSpeed setMotorSpeed `(v  1 e 1 0 ]
 {
-[v setMotorSpeed@speed speed `ui  1 p 2 28 ]
-"240
+[v setMotorSpeed@speed speed `ui  1 p 2 0 ]
+"251
 } 0
 "464 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
 {
 "528
-[v printf@val val `ul  1 a 4 20 ]
+[v printf@val val `ul  1 a 4 36 ]
 "466
-[v printf@ap ap `[1]*.39v  1 a 2 25 ]
+[v printf@ap ap `[1]*.39v  1 a 2 41 ]
 "504
-[v printf@prec prec `i  1 a 2 18 ]
+[v printf@prec prec `i  1 a 2 34 ]
 "499
-[v printf@c c `c  1 a 1 27 ]
+[v printf@c c `c  1 a 1 43 ]
 "508
-[v printf@flag flag `uc  1 a 1 24 ]
+[v printf@flag flag `uc  1 a 1 40 ]
 "464
-[v printf@f f `*.32Cuc  1 p 2 8 ]
+[v printf@f f `*.32Cuc  1 p 2 22 ]
 "1541
 } 0
 "125 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/eusart2.c
@@ -819,7 +824,7 @@
 [v putch@txData txData `uc  1 a 1 wreg ]
 [v putch@txData txData `uc  1 a 1 wreg ]
 "127
-[v putch@txData txData `uc  1 a 1 29 ]
+[v putch@txData txData `uc  1 a 1 1 ]
 "128
 } 0
 "111
@@ -827,37 +832,37 @@
 {
 [v EUSART2_Write@txData txData `uc  1 a 1 wreg ]
 [v EUSART2_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART2_Write@txData txData `uc  1 a 1 28 ]
+[v EUSART2_Write@txData txData `uc  1 a 1 0 ]
 "118
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
 {
 "11
-[v ___llmod@counter counter `uc  1 a 1 41 ]
+[v ___llmod@counter counter `uc  1 a 1 21 ]
 "8
-[v ___llmod@dividend dividend `ul  1 p 4 0 ]
-[v ___llmod@divisor divisor `ul  1 p 4 4 ]
+[v ___llmod@dividend dividend `ul  1 p 4 13 ]
+[v ___llmod@divisor divisor `ul  1 p 4 17 ]
 "26
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "11
-[v ___lldiv@quotient quotient `ul  1 a 4 36 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
 "12
-[v ___lldiv@counter counter `uc  1 a 1 40 ]
+[v ___lldiv@counter counter `uc  1 a 1 12 ]
 "8
-[v ___lldiv@dividend dividend `ul  1 p 4 28 ]
-[v ___lldiv@divisor divisor `ul  1 p 4 32 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 0 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 4 ]
 "31
 } 0
-"242 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
+"253 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _parseInt parseInt `(ui  1 e 2 0 ]
 {
-"244
-[v parseInt@position position `ui  1 a 2 31 ]
-"248
+"255
+[v parseInt@position position `ui  1 a 2 3 ]
+"259
 } 0
 "83 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/eusart1.c
 [v _EUSART1_is_rx_ready EUSART1_is_rx_ready `(uc  1 e 1 0 ]
@@ -882,7 +887,7 @@
 "172
 [v _TMR5_SetInterruptHandler TMR5_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 28 ]
+[v TMR5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
 "174
 } 0
 "63 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/tmr3.c
@@ -898,7 +903,7 @@
 "132
 [v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 28 ]
+[v TMR2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
 "134
 } 0
 "64 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/tmr1.c
@@ -909,7 +914,7 @@
 "172
 [v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 28 ]
+[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
 "174
 } 0
 "67 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/tmr0.c
@@ -920,7 +925,7 @@
 "156
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 28 ]
+[v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
 "158
 } 0
 "57 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/pin_manager.c
@@ -978,12 +983,12 @@
 {
 "169
 } 0
-"315 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
+"330 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _TMR5_DefaultInterruptHandler TMR5_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"316
+"331
 [v TMR5_DefaultInterruptHandler@pulseHigh pulseHigh `uc  1 s 1 pulseHigh ]
-"330
+"345
 } 0
 "121 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/tmr5.c
 [v _TMR5_WriteTimer TMR5_WriteTimer `(v  1 e 1 0 ]
@@ -996,18 +1001,18 @@
 {
 "129
 } 0
-"287 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
+"301 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"289
+"303
 [v TMR2_DefaultInterruptHandler@error error `l  1 a 4 6 ]
-"313
+"327
 } 0
-"228
+"239
 [v i2_setMotorSpeed setMotorSpeed `(v  1 e 1 0 ]
 {
 [v i2setMotorSpeed@speed speed `ui  1 p 2 0 ]
-"240
+"251
 } 0
 "108 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/tmr2.c
 [v _TMR2_WriteTimer TMR2_WriteTimer `(v  1 e 1 0 ]
@@ -1023,12 +1028,12 @@
 {
 "169
 } 0
-"270 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
+"283 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"271
+"284
 [v TMR1_DefaultInterruptHandler@pulseHigh pulseHigh `uc  1 s 1 pulseHigh ]
-"285
+"298
 } 0
 "121 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/tmr1.c
 [v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 1 0 ]
@@ -1041,12 +1046,57 @@
 {
 "153
 } 0
-"250 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
+"261 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"252
+"263
 [v TMR0_DefaultInterruptHandler@pulseHigh pulseHigh `uc  1 s 1 pulseHigh ]
-"268
+"280
+} 0
+"464 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\doprnt.c
+[v i2_printf printf `(i  1 e 2 0 ]
+{
+[v i2printf@val printf `ul  1 a 4 36 ]
+[v i2printf@ap printf `[1]*.39v  1 a 2 41 ]
+[v i2printf@prec printf `i  1 a 2 34 ]
+[v i2printf@c printf `c  1 a 1 43 ]
+[v i2printf@flag printf `uc  1 a 1 40 ]
+[v i2printf@f f `*.32Cuc  1 p 2 22 ]
+"1541
+} 0
+"125 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/eusart2.c
+[v i2_putch putch `(v  1 e 1 0 ]
+{
+[v i2putch@txData txData `uc  1 a 1 wreg ]
+[v i2putch@txData txData `uc  1 a 1 wreg ]
+"127
+[v i2putch@txData txData `uc  1 a 1 1 ]
+"128
+} 0
+"111
+[v i2_EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
+{
+[v i2EUSART2_Write@txData txData `uc  1 a 1 wreg ]
+[v i2EUSART2_Write@txData txData `uc  1 a 1 wreg ]
+[v i2EUSART2_Write@txData txData `uc  1 a 1 0 ]
+"118
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+[v i2___llmod __llmod `(ul  1 e 4 0 ]
+{
+[v i2___llmod@counter __llmod `uc  1 a 1 21 ]
+[v i2___llmod@dividend dividend `ul  1 p 4 13 ]
+[v i2___llmod@divisor divisor `ul  1 p 4 17 ]
+"26
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+[v i2___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+[v i2___lldiv@quotient __lldiv `ul  1 a 4 8 ]
+[v i2___lldiv@counter __lldiv `uc  1 a 1 12 ]
+[v i2___lldiv@dividend dividend `ul  1 p 4 0 ]
+[v i2___lldiv@divisor divisor `ul  1 p 4 4 ]
+"31
 } 0
 "122 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/tmr0.c
 [v _TMR0_WriteTimer TMR0_WriteTimer `(v  1 e 1 0 ]
@@ -1064,11 +1114,11 @@
 [v CCP5_CaptureISR@module module `S778  1 a 2 2 ]
 "94
 } 0
-"352 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
+"369 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _CCP5_CallBack CCP5_CallBack `(v  1 e 1 0 ]
 {
 [v CCP5_CallBack@capturedValue capturedValue `ui  1 p 2 0 ]
-"365
+"382
 } 0
 "81 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\mcc_generated_files/ccp4.c
 [v _CCP4_CaptureISR CCP4_CaptureISR `(v  1 e 1 0 ]
@@ -1080,9 +1130,9 @@
 [v CCP4_CaptureISR@module module `S1007  1 a 2 2 ]
 "94
 } 0
-"332 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
+"348 C:\Users\John\Documents\College\Spring_2018\MicroComputerArch\EENG383FinalProject\FinalProject.X\main.c
 [v _CCP4_CallBack CCP4_CallBack `(v  1 e 1 0 ]
 {
 [v CCP4_CallBack@capturedValue capturedValue `ui  1 p 2 0 ]
-"350
+"366
 } 0

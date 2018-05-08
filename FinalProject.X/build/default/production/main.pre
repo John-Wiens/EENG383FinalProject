@@ -8555,7 +8555,11 @@ char cmd, cmd2;
 (INTCONbits.PEIE = 1);
 
 SYSTEM_Initialize();
-
+printf("Connect RA1 to Yaw Servo Data\r\n");
+printf("Connect RA0 to Pitch Servo Data\r\n");
+printf("Connect RA2 to the Motor Controller Data\r\n");
+printf("Connect RB0 to Encoder A\r\n");
+printf("Connect RA4 to Encoder B\r\n");
 for(;;) {
 if ((EUSART2_is_rx_ready())) {
 cmd = EUSART2_Read();
@@ -8569,10 +8573,19 @@ setPitchServo(pitchPosition + 100);
 printf("Decrementing Pitch Servo Position: %u\r\n",pitchPosition);
 break;
 case '?':
-printf("Connect RA1 to Yaw Servo Data\r\n");
-printf("Connect RA0 to Pitch Servo Data\r\n");
-printf("Connect RB0 to Encoder A\r\n");
-printf("Connect RA4 to Encoder B\r\n");
+printf("Debug Console Help\r\n");
+printf("? Show Help Menu\r\n");
+printf("S/s move Yaw Servo\r\n");
+printf("T/t move Tilt Servo\r\n");
+printf("M/m Increase/Decrease Motor Speed \r\n");
+printf("F/f Move Motor 10000/-10000 ticks \r\n");
+printf("E print encoder values to console \r\n");
+printf("o print encoder values to console \r\n");
+printf("u print incoming EUSART1 data \r\n");
+printf("z clear terminal\r\n");
+printf("Z Reset Pic\r\n");
+
+
 break;
 case 'S':
 setYawServo(yawPosition+100);
@@ -8638,12 +8651,12 @@ break;
 
 }
 if ((EUSART1_is_rx_ready())) {
+
 cmd = EUSART1_Read();
 switch (cmd) {
 case 'p':
 printf("");
 uint16_t pos = parseInt()<<4;
-
 setYawServo(pos +1100);
 break;
 case 't':
@@ -8657,7 +8670,7 @@ motorControlMode = 0;
 printf("");
 uint16_t speed = parseInt();
 speed = (speed <<4) - speed + 1100;
-printf("Data Bits s %i\r\n",speed);
+
 setMotorSpeed(speed);
 break;
 case 'H':
@@ -8681,8 +8694,6 @@ case 'r':
 motorControlMode = 1;
 motorSetPoint = rightLimit;
 break;
-
-
 default:
 printf("Unknown or Invalid Command %c\r\n",cmd);
 break;
@@ -8750,12 +8761,14 @@ do { LATAbits.LATA1 = 0; } while(0);
 TMR0_WriteTimer(0xFFFF -40000 );
 pulseHigh = 0;
 }
-
-
+if(motorControlMode == 1){
+printf("%ld,    %ld\r\n",motorSetPoint,encoderPosition);
+}
 INTCONbits.TMR0IF = 0;
 
 
 }
+
 
 void TMR1_DefaultInterruptHandler(void){
 static uint8_t pulseHigh = 0;
@@ -8773,6 +8786,7 @@ pulseHigh = 0;
 
 PIR1bits.TMR1IF = 0;
 }
+
 
 void TMR2_DefaultInterruptHandler(void){
 if(motorControlMode == 1){
@@ -8802,6 +8816,7 @@ TMR2_WriteTimer(0);
 PIR1bits.TMR2IF = 0;
 }
 
+
 void TMR5_DefaultInterruptHandler(void){
 static uint8_t pulseHigh = 0;
 if(!pulseHigh){
@@ -8818,6 +8833,7 @@ pulseHigh = 0;
 
 PIR5bits.TMR5IF = 0;
 }
+
 
 void CCP4_CallBack(uint16_t capturedValue)
 {
@@ -8838,6 +8854,7 @@ encoderA = 0;
 
 PIR4bits.CCP4IF = 0;
 }
+
 
 void CCP5_CallBack(uint16_t capturedValue)
 {

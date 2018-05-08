@@ -65,7 +65,11 @@ void main (void) {
     INTERRUPT_PeripheralInterruptEnable();
     
     SYSTEM_Initialize();
-    
+    printf("Connect RA1 to Yaw Servo Data\r\n");
+    printf("Connect RA0 to Pitch Servo Data\r\n");
+    printf("Connect RA2 to the Motor Controller Data\r\n");
+    printf("Connect RB0 to Encoder A\r\n");
+    printf("Connect RA4 to Encoder B\r\n");
 	for(;;) {
 		if (EUSART2_DataReady) {			// wait for incoming data on USART
             cmd = EUSART2_Read();
@@ -79,10 +83,19 @@ void main (void) {
                     printf("Decrementing Pitch Servo Position: %u\r\n",pitchPosition);
                     break;
                 case '?':
-                    printf("Connect RA1 to Yaw Servo Data\r\n");
-                    printf("Connect RA0 to Pitch Servo Data\r\n");
-                    printf("Connect RB0 to Encoder A\r\n");
-                    printf("Connect RA4 to Encoder B\r\n");
+                    printf("Debug Console Help\r\n");
+                    printf("? Show Help Menu\r\n");
+                    printf("S/s move Yaw Servo\r\n");
+                    printf("T/t move Tilt Servo\r\n");
+                    printf("M/m Increase/Decrease Motor Speed \r\n");
+                    printf("F/f Move Motor 10000/-10000 ticks \r\n");
+                    printf("E print encoder values to console \r\n");
+                    printf("o print encoder values to console \r\n");
+                    printf("u print incoming EUSART1 data \r\n");
+                    printf("z clear terminal\r\n");
+                    printf("Z Reset Pic\r\n");
+                    
+                    
                     break;
                 case 'S':
                     setYawServo(yawPosition+100);
@@ -154,7 +167,6 @@ void main (void) {
                 case 'p':
                     printf("");
                     uint16_t pos = parseInt()<<4;
-                    //printf("Data Bits p %i\r\n",pos);
                     setYawServo(pos +YAW_MIN);
                 break;
                 case 't':
@@ -168,7 +180,7 @@ void main (void) {
                     printf("");
                     uint16_t speed = parseInt();
                     speed = (speed <<4) - speed + YAW_MIN;
-                    printf("Data Bits s %i\r\n",speed);
+                    //printf("Data Bits s %i\r\n",speed);
                     setMotorSpeed(speed);
                 break;
                 case 'H':
@@ -259,13 +271,15 @@ void TMR0_DefaultInterruptHandler(void){
        TMR0_WriteTimer(0xFFFF -PWM_PERIOD ); 
        pulseHigh = false;
     }
-    
-    
+    if(motorControlMode == FeedbackControl){
+        printf("%ld,    %ld\r\n",motorSetPoint,encoderPosition);
+    }
     INTCONbits.TMR0IF = 0;
    
 
 } // end
 
+//Pitch Servo ISR
 void TMR1_DefaultInterruptHandler(void){
     static uint8_t pulseHigh = false;
     if(!pulseHigh){
@@ -283,6 +297,7 @@ void TMR1_DefaultInterruptHandler(void){
     PIR1bits.TMR1IF = 0;
 }
 
+//Feedback Motor Limits and Control ISR
 void TMR2_DefaultInterruptHandler(void){
     if(motorControlMode == FeedbackControl){
         int32_t error = (encoderPosition - motorSetPoint);
@@ -311,6 +326,7 @@ void TMR2_DefaultInterruptHandler(void){
     PIR1bits.TMR2IF = 0;
 }
 
+//Motor Control ISR
 void TMR5_DefaultInterruptHandler(void){
     static uint8_t pulseHigh = false;
     if(!pulseHigh){
@@ -328,6 +344,7 @@ void TMR5_DefaultInterruptHandler(void){
      PIR5bits.TMR5IF = 0;
 }
 
+//Encoder Channel A ISR
 void CCP4_CallBack(uint16_t capturedValue)
 {
     if(CCP4CONbits.CCP4M == 0b0101){ //on Rising Edge
@@ -348,6 +365,7 @@ void CCP4_CallBack(uint16_t capturedValue)
     PIR4bits.CCP4IF = 0;
 }
 
+//Encoder Channel B ISR
 void CCP5_CallBack(uint16_t capturedValue)
 {
     if(CCP5CONbits.CCP5M == 0b0101){ //on Rising Edge
